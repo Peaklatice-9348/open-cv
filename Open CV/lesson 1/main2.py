@@ -1,0 +1,59 @@
+import cv2
+
+#load the image in colour from using 1 or cv2.IMREAD_COLOR
+image = cv2.imread('lesson 1/download.jpg',1)
+cv2.imshow('pikachu',image)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+image2 = cv2.imread('lesson 1/download.jpg',cv2.IMREAD_COLOR)
+cv2.imshow('pikachu',image2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#load the image in greyscale/black and white from using 0 or cv2.IMREAD_GRAYSCALE
+image3 = cv2.imread('lesson 1/download.jpg',0)
+cv2.imshow('pikachu',image3)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+image4 = cv2.imread('lesson 1/download.jpg',cv2.IMREAD_GRAYSCALE)
+cv2.imshow('pikachu',image4)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#load the image unchanged from using -1 or cv2.IMREAD_UNCHANGED
+image5 = cv2.imread('lesson 1/download.jpg',-1)
+cv2.imshow('pikachu',image5)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+image6 = cv2.imread('lesson 1/download.jpg',cv2.IMREAD_UNCHANGED)
+cv2.imshow('pikachu',image6)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#saving the image after making changes
+import cv2
+import os
+
+image_folder = 'C:/Users/navee/OneDrive/Desktop/Python/Build GUI/Open CV/images'
+image7 = cv2.imread('lesson 1/download.jpg',cv2.IMREAD_GRAYSCALE)
+cv2.imshow('pikachu',image7)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#change current execution directory
+
+os.chdir(image_folder)
+
+#write image to this directory
+cv2.imwrite(' amongus.png',image7)
+print('message')
