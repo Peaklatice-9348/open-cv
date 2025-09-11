@@ -1,4 +1,4 @@
-'''
+
 import cv2
 
 #load the image in colour from using 1 or cv2.IMREAD_COLOR
@@ -58,7 +58,7 @@ os.chdir(image_folder)
 #write image to this directory
 cv2.imwrite('pikachoo.png',image7)
 print('message')
-'''
+
 #printing images in a different colour form
 import cv2
 image8 = cv2.imread('lesson 1/pikachu.png',cv2.IMREAD_UNCHANGED)
@@ -79,4 +79,6 @@ cv2.waitKey(0)
 
 cv2.imshow('red saturation image',r)
 cv2.waitKey(0)
+
 cv2.destroyAllWindows()
+
