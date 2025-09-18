@@ -39,7 +39,7 @@ cv2.destroyAllWindows()
 import cv2
 sahur = cv2.imread('lesson 2/tung sahur.jpg',1)
 
-border = cv2.copyMakeBorder(sahur,105,105,15,15,cv2.BORDER_CONSTANT,value=0)
+border = cv2.copyMakeBorder(sahur,105,105,15,15,cv2.BORDER_TRANSPARENT,value=0)
 cv2.imshow('tung tung tung tung sahur',border)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
@@ -48,7 +48,7 @@ cv2.destroyAllWindows()
 import cv2
 sahur = cv2.imread('lesson 2/tung sahur.jpg',1)
 
-border = cv2.copyMakeBorder(sahur,15,500,15,15,cv2.BORDER_REFLECT,value=50)
+border = cv2.copyMakeBorder(sahur,1500,1500,1500,1500,cv2.BORDER_REFLECT,value=50)
 cv2.imshow('tung tung tung tung sahur',border)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
