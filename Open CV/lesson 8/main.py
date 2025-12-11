@@ -2,9 +2,9 @@ import cv2
 import numpy
 import os 
 
-dataset = r"lesson 8/images"
+dataset = r"lesson 8\images"
 subdata = 'Yusuf'
-haarfile = r'lesson 8/haarcascade_frontalface_default.xml'
+haarfile = r'lesson 8\haarcascade_frontalface_default.xml'
 
 path = os.path.join(dataset,subdata)
 
@@ -12,30 +12,23 @@ if not os.path.isdir(path):
     os.mkdir(path)
 
 (width,height) = (130,100)
-webcam = cv2.VideoCapture(0)
-
-if not webcam.isOpened():
-    print('camera does not exist')
-
-else:
-    print('camera does exist')
+webcam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 facecascade =cv2.CascadeClassifier(haarfile)
 count = 0
-
-while count<10:
+while count<30:
     (isread,image) = webcam.read()
-
-    if isread == False:
-        print('image not captured')
-
-    else:
-        print('image captured')
     
     g_image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    cv2.imwrite(f'{path}/animage{count}.png',g_image)
-    cv2.imshow('animage',g_image)
+    faces = facecascade.detectMultiScale(g_image,1.3,4)
+    for (x,y,w,h) in faces:
+        cv2.rectangle(image,(x,y),(x+w,y+h),(0,100,0),2)
+        face = g_image[y:y+h,x:x+w]
+        face_resized = cv2.resize(face,(width,height))
+        cv2.imwrite(rf'{path}\animage{count}.png',face_resized)
+        cv2.imshow('animage',face_resized)
     count+=1
 
     cv2.waitKey(1)
+
 webcam.release()
